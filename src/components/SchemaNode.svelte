@@ -9,7 +9,9 @@
     <span
       class="text-gray-700">{parentFields.join('.')}{parentFields.length ? '.' : ''}</span><span>{node.name}</span>
   </p>
-  {#if node.description}
+  {#if node.description && node.name === 'app_channel'}
+    <p class="text-red-600 text-xs ml-2">{node.description}</p>
+  {:else if node.description}
     <p class="text-gray-600 text-xs ml-2">{node.description}</p>
   {/if}
   {#if parentFields.length === 2 && parentFields[0] === 'metrics'}
